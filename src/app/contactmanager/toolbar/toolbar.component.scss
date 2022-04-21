@@ -1,0 +1,24 @@
+$iconWidth : 56px;
+.toggle-navs{
+  display: none;
+  margin: 8px;
+  padding: 0;
+  min-width: $iconWidth;
+
+  @media (max-width : 720px) {
+    display: flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  mat-icon{
+    width: $iconWidth;
+    height: $iconWidth;
+    font-size: 30px;
+    line-height: $iconWidth;
+    color: white;
+  }
+
+
+}
