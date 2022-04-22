@@ -1,28 +1,22 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { catchError, Observable, throwError } from "rxjs";
-import { User } from "../interfaces/User";
+import { Note } from "../interfaces/Note";
 
 @Injectable({
   providedIn:'root'
 })
 
-export class UserService{
+export class PostsService{
+  private POSTS_URL = "https://jsonplaceholder.typicode.com/posts"
+  constructor(private http: HttpClient){}
 
-  private  USER_URL = "https://jsonplaceholder.typicode.com/users"
-  constructor(private http : HttpClient){}
-
-  getAllUsers(): Observable<User[]>{
-    return this.http.get<User[]>(this.USER_URL).pipe(
+  getUserPost(userId:number):Observable<Note[]>{
+    return this.http.get<Note[]>(`${this.POSTS_URL}/?userId=${userId}`).pipe(
       catchError(this.handdlerror)
     )
   }
 
-  getUserById(id: number): Observable<User>{
-    return this.http.get<User>(`${this.USER_URL}/${id}`).pipe(
-      catchError(this.handdlerror)
-    )
-  }
 
   private handdlerror(error : HttpErrorResponse){
     if(error.error instanceof ErrorEvent){

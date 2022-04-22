@@ -7,7 +7,7 @@
 
     <mat-nav-list>
       <mat-list-item *ngFor="let user of users">
-        <a matLine href="#">
+        <a matLine [routerLink]="['/contactmanage', user.id]">
           <mat-icon>
             <img width="30px" src='/assets/images/{{user.username}}.png' />
           </mat-icon>
