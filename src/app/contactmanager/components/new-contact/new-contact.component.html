@@ -3,11 +3,13 @@
   <div class="example-container">
     <mat-form-field appearance="fill">
       <mat-label>Name</mat-label>
-      <input matInput [(ngModel)]="user.name" required>
+      <input matInput [formControl]="name" required>
+      <mat-error *ngIf="name.invalid">{{getNameErrorMessage()}}</mat-error>
     </mat-form-field>
+
     <mat-form-field appearance="fill">
       <mat-label>Avatar</mat-label>
-      <mat-select multiple [(ngModel)]="user.username">
+      <mat-select [formControl]="avatar" required>
         <mat-select-trigger>
           <img width="30px" src='/assets/images/{{user.username}}.png' /> {{user.username}}
         </mat-select-trigger>
@@ -15,28 +17,39 @@
           <img width="25px" src='/assets/images/{{topping}}.png' /> {{topping}}
         </mat-option>
       </mat-select>
+      <mat-error *ngIf="avatar.invalid">{{getAvatarErrorMessage()}}</mat-error>
     </mat-form-field>
+
     <mat-form-field appearance="fill">
       <mat-label>Enter your email</mat-label>
       <input matInput placeholder="pat@example.com" [formControl]="email" required>
       <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
+
     <mat-form-field appearance="fill">
       <mat-label>Street</mat-label>
-      <input matInput [(ngModel)]="user.address.street" required>
+      <input matInput [formControl]="street" required>
+      <mat-error *ngIf="street.invalid">{{getStreetErrorMessage()}}</mat-error>
     </mat-form-field>
+
     <mat-form-field appearance="fill">
       <mat-label>Suite</mat-label>
-      <input matInput [(ngModel)]="user.address.suite" required>
+      <input matInput [formControl]="suite" required>
+      <mat-error *ngIf="suite.invalid">{{getSuiteErrorMessage()}}</mat-error>
     </mat-form-field>
+
     <mat-form-field appearance="fill">
       <mat-label>City</mat-label>
-      <input matInput [(ngModel)]="user.address.city" required>
+      <input matInput [formControl]="city" required>
+      <mat-error *ngIf="city.invalid">{{getCityErrorMessage()}}</mat-error>
     </mat-form-field>
+
     <mat-form-field appearance="fill">
       <mat-label>Zipcode</mat-label>
-      <input matInput [(ngModel)]="user.address.zipcode" required>
+      <input matInput [formControl]="zipcode" required>
+      <mat-error *ngIf="zipcode.invalid">{{getZipcodeErrorMessage()}}</mat-error>
     </mat-form-field>
+
   </div>
 </mat-dialog-content>
 <mat-dialog-actions>

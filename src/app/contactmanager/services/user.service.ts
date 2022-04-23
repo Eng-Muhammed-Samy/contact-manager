@@ -24,6 +24,10 @@ export class UserService{
     )
   }
 
+  saveUser(user: User){
+    return this.http.post(this.USER_URL,user);
+  }
+
   private handdlerror(error : HttpErrorResponse){
     if(error.error instanceof ErrorEvent){
        return throwError(()=> new Error('error occures in' + error.error.message))

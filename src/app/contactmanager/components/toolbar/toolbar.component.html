@@ -5,14 +5,14 @@
   </button>
   <span>Contact Manager</span>
   <span class="example-spacer"></span>
-  <button mat-icon-button>
-    <mat-icon>favorite</mat-icon>
-  </button>
 
   <button mat-button [matMenuTriggerFor]="menu">
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="openDialog()">new contact</button>
+    <button mat-menu-item (click)="togleTheme.emit()">
+      toggle theme
+    </button>
   </mat-menu>
 </mat-toolbar>

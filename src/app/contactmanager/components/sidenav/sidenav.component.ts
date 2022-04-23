@@ -16,7 +16,7 @@ const SMALL_WIDTH_SCREEN = 720;
 export class SidenavComponent implements OnInit {
 
   isSmallScreen : boolean = true;
-
+  isDarkTheme: boolean = false
   users!: User[];
 
   @ViewChild(MatDrawer) drawer!:MatDrawer ;
@@ -43,5 +43,8 @@ export class SidenavComponent implements OnInit {
         this.drawer.close();
       }
     })
+  }
+  toggleThemeEvent(){
+    this.isDarkTheme = !this.isDarkTheme;
   }
 }

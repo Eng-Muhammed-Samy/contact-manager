@@ -1,4 +1,4 @@
-<mat-drawer-container class="app-sidenav-container" autosize>
+<mat-drawer-container class="app-sidenav-container" [class.dark-theme]="isDarkTheme" autosize>
   <mat-drawer #drawer class="app-sidenav mat-elevation-z10" [opened]="!isSmallScreen"
     [mode]=" isSmallScreen? 'over' : 'side' ">
     <mat-toolbar color="primary">
@@ -19,7 +19,7 @@
 
   </mat-drawer>
   <div class="app-sidenav-content">
-    <app-toolbar (toggleButtonSideNav)="drawer.toggle()"></app-toolbar>
+    <app-toolbar (togleTheme)="toggleThemeEvent()" (toggleButtonSideNav)="drawer.toggle()"></app-toolbar>
     <div class="wrapper">
 
       <router-outlet></router-outlet>

@@ -10,6 +10,7 @@ import { NewContact } from '../new-contact/new-contact.component';
 export class ToolbarComponent implements OnInit {
 
   @Output() toggleButtonSideNav :EventEmitter<void> = new EventEmitter();
+  @Output() togleTheme :EventEmitter<void> = new EventEmitter();
   constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
