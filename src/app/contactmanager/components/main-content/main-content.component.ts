@@ -12,23 +12,16 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./main-content.component.scss']
 })
 export class MainContentComponent implements OnInit {
- Posts:Note[] = [];
- userimge: string = ''
+ user !: User ;
  id!: number;
-  constructor(private userImg: UserService,private post: PostsService, private activeRoute : ActivatedRoute) { }
+  constructor(private userData: UserService,private post: PostsService, private activeRoute : ActivatedRoute) { }
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe(params=>{
       this.id = params['id'];
-      this.post.getUserPost(this.id).subscribe({
-        next: data=> this.Posts = data,
+      this.userData.getUserById(this.id).subscribe({
+        next: data=> this.user = data,
         error: err=> console.log(err)
-      });
-
-      this.userImg.getUserById(this.id).subscribe({
-        next: data=> this.userimge = data.username,
-        error: err=> console.log(err)
-
       })
     })
 

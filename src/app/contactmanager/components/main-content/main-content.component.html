@@ -1,20 +1,37 @@
-<div *ngIf="Posts.length == 0">
+<div *ngIf="!user">
   <mat-spinner></mat-spinner>
 </div>
-<div *ngIf="Posts.length">
-  <mat-card style="margin: 25px auto;" *ngFor="let post of Posts">
+<div style="margin-top: 70px;" *ngIf="user">
+  <mat-card style="margin: 25px auto;">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image">
-        <img width="50px" src='/assets/images/{{userimge}}.png' />
+        <img width="50px" src='/assets/images/{{user.username}}.png' />
       </div>
-      <mat-card-title>{{post.title}}</mat-card-title>
-      <mat-card-subtitle></mat-card-subtitle>
+      <mat-card-title>{{user.name}}</mat-card-title>
+      <mat-card-subtitle>{{user.address.street}} - {{user.address.city}}</mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-content>
-      <p style="margin-top: 15px;">
-        {{post.body}}
-      </p>
+
+      <mat-tab-group animationDuration="1000ms">
+        <mat-tab label="User Information">
+          <div>
+            <p style="font-size: 1.1rem; margin: 15px 0;">
+              Name : {{user.name}}
+            </p>
+            <p style="margin: 10px 0;">Email : {{user.email}}</p>
+            <p style="margin: 10px 0;">Address : {{user.address.street}} - {{user.address.suite}} -
+              {{user.address.city}}
+              - {{user.address.zipcode}}</p>
+          </div>
+        </mat-tab>
+        <mat-tab label="Notes">
+          <app-note [userid]="user.id"></app-note>
+        </mat-tab>
+      </mat-tab-group>
+      <!-- <p ">
+
+      </p> -->
     </mat-card-content>
     <mat-card-actions>
       <button mat-button>LIKE</button>
