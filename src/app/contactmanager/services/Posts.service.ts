@@ -8,7 +8,7 @@ import { Note } from "../interfaces/Note";
 })
 
 export class PostsService{
-  private POSTS_URL = "https://jsonplaceholder.typicode.com/posts"
+  private POSTS_URL = "http://localhost:3000/posts"
   constructor(private http: HttpClient){}
 
   getUserPost(userId:number):Observable<Note[]>{

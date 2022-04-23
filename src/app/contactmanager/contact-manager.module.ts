@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 
 import { FlexLayoutModule } from "@angular/flex-layout";
-import { FormsModule } from "@angular/forms";
+import { FormsModule ,ReactiveFormsModule} from "@angular/forms";
 import { MaterialModule } from "../shread/material.module";
 import { Routes, RouterModule } from "@angular/router";
 import { HttpClientModule } from "@angular/common/http";
@@ -12,6 +12,7 @@ import { MainContentComponent } from './components/main-content/main-content.com
 import { ContentmanagerComponent } from "./contact-manager.component";
 import { ToolbarComponent } from "./components/toolbar/toolbar.component";
 import { Notes } from "./components/note/note.component";
+import { NewContact } from "./components/new-contact/new-contact.component";
 
 import { UserService } from "./services/user.service";
 import { PostsService } from "./services/Posts.service";
@@ -35,13 +36,15 @@ const routes : Routes = [
     FormsModule,
     RouterModule.forChild(routes),
     HttpClientModule,
+    ReactiveFormsModule
   ],
   declarations:[
     ContentmanagerComponent,
     ToolbarComponent,
     SidenavComponent,
     MainContentComponent,
-    Notes
+    Notes,
+    NewContact
   ],
   providers:[UserService, PostsService]
 })

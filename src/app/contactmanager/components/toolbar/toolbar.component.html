@@ -1,6 +1,18 @@
-<mat-toolbar color="primary" style="position: fixed; top: 0; overflow: hidden; z-index: 5;">
-  <button mat-button class="toggle-navs" (click)="toggleButtonSideNav.emit()">
+<mat-toolbar color="primary">
+  <button mat-icon-button class="toggle-navs" (click)="toggleButtonSideNav.emit()"
+    aria-label="Example icon-button with menu icon">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>Contac Manager</span>
+  <span>Contact Manager</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button>
+    <mat-icon>favorite</mat-icon>
+  </button>
+
+  <button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="openDialog()">new contact</button>
+  </mat-menu>
 </mat-toolbar>

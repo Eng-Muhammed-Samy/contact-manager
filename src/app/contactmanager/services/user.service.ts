@@ -9,7 +9,7 @@ import { User } from "../interfaces/User";
 
 export class UserService{
 
-  private  USER_URL = "https://jsonplaceholder.typicode.com/users"
+  private  USER_URL = "http://localhost:3000/users"
   constructor(private http : HttpClient){}
 
   getAllUsers(): Observable<User[]>{

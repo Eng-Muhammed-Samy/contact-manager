@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { NewContact } from '../new-contact/new-contact.component';
 
 @Component({
   selector: 'app-toolbar',
@@ -8,9 +10,14 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class ToolbarComponent implements OnInit {
 
   @Output() toggleButtonSideNav :EventEmitter<void> = new EventEmitter();
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
+  openDialog():void{
+    this.dialog.open(NewContact, {
+      width: '450px'
+    })
+  }
 }
