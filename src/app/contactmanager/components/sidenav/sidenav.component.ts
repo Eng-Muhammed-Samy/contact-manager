@@ -5,6 +5,7 @@ import { User } from '../../interfaces/User';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { MatDrawer, MatSidenav } from '@angular/material/sidenav';
+import { Direction } from '@angular/cdk/bidi';
 
 const SMALL_WIDTH_SCREEN = 720;
 
@@ -16,7 +17,8 @@ const SMALL_WIDTH_SCREEN = 720;
 export class SidenavComponent implements OnInit {
 
   isSmallScreen : boolean = true;
-  isDarkTheme: boolean = false
+  isDarkTheme: boolean = false;
+  direction : Direction  = "ltr";
   users!: User[];
 
   @ViewChild(MatDrawer) drawer!:MatDrawer ;
@@ -46,5 +48,8 @@ export class SidenavComponent implements OnInit {
   }
   toggleThemeEvent(){
     this.isDarkTheme = !this.isDarkTheme;
+  }
+  toggleDirEvent(){
+    this.direction = this.direction == "ltr" ? "rtl" : "ltr";
   }
 }
